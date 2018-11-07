@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - dcoker
+before_install:
+  - docker build -t bharathdocker/react-on-docker -f Dockerfile.dev
+script:
+  - docker run bharathdocker/react-on-docker npm run test -- --coverage
