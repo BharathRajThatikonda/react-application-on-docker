@@ -5,7 +5,7 @@ before_install:
   - docker build -t bharathdocker21/react-on-docker -f Dockerfile.dev .
 script:
   - docker run bharathdocker21/react-on-docker npm run test -- --coverage
-  
+
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
@@ -18,4 +18,4 @@ deploy:
     branch: master
     acces_key_id: $AWS_ACCESS_KEY
     secret_access_key: 
-      secure: "AWS_SECRECT_KEY"
+      secure: "$AWS_SECRECT_KEY"
