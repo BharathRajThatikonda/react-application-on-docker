@@ -5,3 +5,17 @@ before_install:
   - docker build -t bharathdocker21/react-on-docker -f Dockerfile.dev .
 script:
   - docker run bharathdocker21/react-on-docker npm run test -- --coverage
+//http://reactwebappdocker-env.i8ienpvb2r.us-east-1.elasticbeanstalk.com/
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "react-webApp-Docker"
+  env: "ReactWebappDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-561687188293"
+  bucket_path: "eact-webApp-Docker"
+
+  on:
+    branch: master
+    acces_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
+      secure: "AWS_SECRECT_KEY"
